@@ -1,8 +1,7 @@
+/*从首尾向中间逼近，最终的结果一定包含最优解。
+证明方法：反证法。如果从首尾逼近的过程中没有包含最优解，，，，最终推出矛盾。*/
 class Solution {
 public:
-// 	typedef struct {
-// 		int h,w;
-// 	}Square;
     int maxArea(vector<int> &height){
        int len = height.size(), low = 0, high = len -1 ;  
        int maxArea = 0;  
@@ -22,18 +21,4 @@ public:
     int min(int a,int b){
         return a>b?b:a;
     }
-// 	int maxArea(vector<int> &height){
-// 		int len=height.size();
-// 		int max=-1;
-// 		int d;
-// 		for(int m=0;m<len;m++){
-// 			for(int i=0;i<len-m;i++){
-// 				int j=i+m;
-// 				d=(height[i]>height[j]?height[j]:height[i]);
-// 				if(d*(j-i)>max)
-// 					max=d*(j-i);
-// 			}
-// 		}
-// 		return max;
-// 	}
 };
