@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
+/*找数学规律*/
 class Solution {
 		public:
 				string getPermutation(int n, int k) {
