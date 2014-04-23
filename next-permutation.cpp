@@ -1,9 +1,14 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+/*找数学规律, 从数组后往前找*/
 class Solution {
 	public:
+		void swap(int a,int b,vector<int>&num){
+			int tmp=num[a];
+			num[a]=num[b];
+			num[b]=tmp;
+		}
 		void nextPermutation(vector<int> &num){
 			int len=num.size();
 			if(len==0)
@@ -14,13 +19,10 @@ class Solution {
 					index=i;
 					break;
 				}
-			//cout<<"index:"<<index<<endl;
 			if(index==0){
 				int l=0,r=len-1;
 				while(l<r){
-					int tmp=num[l];
-					num[l]=num[r];
-					num[r]=tmp;
+					swap(l,r,num);
 					l++;
 					r--;
 				}
@@ -28,12 +30,15 @@ class Solution {
 			else{
 				for(int i=len-1;i>=index;i--)
 					if(num[i]>num[index-1]){
-						//swap index-1 i-1
-						int tmp=num[i];
-						num[i]=num[index-1];
-						num[index-1]=tmp;
+						swap( index-1, i,num);
 						break;
 					}
+				int l=index,r=len-1;
+				while(l<r){
+					swap(l,r,num);
+					l++;
+					r--;
+				}
 			}
 		}
 };
@@ -41,8 +46,8 @@ int main(){
 	Solution s;
 	vector<int> num;
 	num.push_back(1);
-	num.push_back(1);
-	num.push_back(5);
+	num.push_back(3);
+	num.push_back(2);
 	//num.push_back(4);
 	//num.push_back(5);
 	//num.push_back(6);
